@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.11.+'
+        classpath 'me.champeau.gradle:gradle-groovy-android-plugin:0.2.1'
+    }
+}
+
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        applicationId "com.mpandey.reactivegroovy"
+        minSdkVersion 15
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/groovy-release-info.properties'
+    }
+}
+
+apply plugin: 'me.champeau.gradle.groovy-android'
+
+repositories {
+    maven {
+        url='https://oss.jfrog.org/oss-snapshot-local/'
+    }
+    jcenter()
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v13:19.+'
+    compile ('org.codehaus.groovy:groovy:2.4.0-SNAPSHOT:grooid') {
+        exclude group: 'org.apache.commons'
+    }
+    compile 'com.squareup.okhttp:okhttp:1.5.2'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'org.apache.commons:commons-io:1.3.2'
+    compile 'com.squareup.dagger:dagger:1.2.1'
+    compile 'com.jakewharton:butterknife:4.0.1'
+    compile 'com.squareup.picasso:picasso:2.2.0'
+    compile 'com.netflix.rxjava:rxjava-core:0.19.1'
+    compile 'com.netflix.rxjava:rxjava-android:0.19.1'
+    compile 'com.netflix.rxjava:rxjava-async-util:0.19.1'
+//    compile 'com.netflix.rxjava:rxjava-groovy:0.19.1'
+}

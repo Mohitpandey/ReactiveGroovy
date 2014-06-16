@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Movie Explorer</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string-array name="sections">
+        <item>In_Theaters</item>
+        <item>DVD_Releases</item>
+        <item>Opening</item>
+        <item>In_Box_Office</item>
+    </string-array>
+
+    <string name="In_Theaters"><![CDATA[http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?page_limit=24&page=1&country=us&apikey=]]></string>
+    <string name="DVD_Releases"><![CDATA[http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json?page_limit=24&page=1&country=us&apikey=]]></string>
+    <string name="Opening"><![CDATA[http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/upcoming.json?page_limit=24&page=1&country=us&apikey=]]></string>
+    <string name="In_Box_Office"><![CDATA[http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?page_limit=24&page=1&country=us&apikey=]]></string>
+</resources>
